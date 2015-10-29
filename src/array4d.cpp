@@ -5,15 +5,17 @@ using namespace libcnn;
 
 namespace libcnn {
 
-/* default constructor, tested */
+/* default constructor */
 template<typename DT>
 Array4D<DT>::Array4D():
-  value_(nullptr), shape_(std::vector<int>(4, 0)) {}
+  value_(nullptr), shape_(std::vector<int>(4, 0)),
+  dim0_(0), dim1_(0), dim2_(0), dim3_(0) {}
 
-/* copy construnctor, tested */
+/* copy construnctor */
 template<typename DT>
 Array4D<DT>::Array4D(const Array4D& src):
-  shape_(src.shape_) {
+  shape_(src.shape_),
+  dim0_(src.dim0_), dim1_(src.dim1_), dim2_(src.dim2_), dim3_(src.dim3_) {
     // allocate memory
     value_ = new DT[src.get_size()];
 
@@ -23,42 +25,55 @@ Array4D<DT>::Array4D(const Array4D& src):
     }
 }
 
-/* constructor, tested */
+/* constructor */
 template<typename DT>
 Array4D<DT>::Array4D(const vector<int>& shape):
-  shape_(shape) {
+  shape_(shape),
+  dim0_(shape[0]), dim1_(shape[1]), dim2_(shape[2]), dim3_(shape[3]) {
     // allocate memory
     value_ = new DT[shape[0]*shape[1]*shape[2]*shape[3]];
 }
  
-/* constructor (overloaded), tested */
+/* constructor (overloaded) */
 template<typename DT>
 Array4D<DT>::Array4D(const vector<int>& shape, DT* const value):
-  shape_(shape) {
+  shape_(shape),
+  dim0_(shape[0]), dim1_(shape[1]), dim2_(shape[2]), dim3_(shape[3]) {
     // assume that shape and size of value matches
     value_ = value; 
 }
 
-/* destructor, tested */
+/* destructor */
 template<typename DT>
 Array4D<DT>::~Array4D() {
   delete []value_;
 }
  
-/* get value, tested */
+/* get value */
 template<typename DT>
 DT* Array4D<DT>::get_value() const {
   return value_;
 }
 
 
-/* get shape, tested */
+/* get shape */
 template<typename DT>
 vector<int> Array4D<DT>::get_shape() const {
   return shape_;
 }
 
-/* get size, tested */
+/* get dimemsion */
+template<typename DT>
+int Array4D<DT>::get_dim(const int axes) const {
+  switch(axes) {
+    case 0: return dim0_;
+    case 1: return dim1_;
+    case 2: return dim2_;
+    case 3: return dim3_;
+  } 
+}
+
+/* get size */
 template<typename DT>
 int Array4D<DT>::get_size() const {
   return shape_[0]*shape_[1]*shape_[2]*shape_[3];

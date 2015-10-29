@@ -1,5 +1,5 @@
-#ifndef ARRAY4D_HPP_
-#define ARRAY4D_HPP_
+#ifndef LIBCNN_ARRAY4D_HPP_
+#define LIBCNN_ARRAY4D_HPP_
 #include <vector>
 
 using std::vector;
@@ -10,6 +10,10 @@ template<typename DT>
 class Array4D {
   private:
     vector<int> shape_;
+    int dim0_;            // number of examples
+    int dim1_;            // number of channels
+    int dim2_;            // number of columns
+    int dim3_;            // number of rows
     DT* value_;
 
   public:
@@ -21,6 +25,7 @@ class Array4D {
 
     DT* get_value() const;
     vector<int> get_shape() const; 
+    int get_dim(const int axes) const;
     int get_size() const; 
 
     void set_value(DT* const new_value, const int new_size); 
