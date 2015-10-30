@@ -80,12 +80,12 @@ void conv(DT* src, const vector<int>& src_shape,
   vector<int> src_subshape {src_shape[2], src_shape[3]};
   vector<int> kernel_subshape {kernel_shape[2], kernel_shape[3]};
 
-  unsigned int src_step_dim0 = src_shape[1] * src_shape[2] * src_shape[3];
-  unsigned int src_step_dim1 = src_shape[2] * src_shape[3];
-  unsigned int kernel_step_dim0 = kernel_shape[1] * kernel_shape[2] * kernel_shape[3];
-  unsigned int kernel_step_dim1 = kernel_shape[2] * kernel_shape[3];
-  unsigned int dst_step_dim0 = dst_chas * dst_cols * dst_rows;
-  unsigned int dst_step_dim1 = dst_cols * dst_rows;
+  size_t src_step_dim0 = src_shape[1] * src_shape[2] * src_shape[3];
+  size_t src_step_dim1 = src_shape[2] * src_shape[3];
+  size_t kernel_step_dim0 = kernel_shape[1] * kernel_shape[2] * kernel_shape[3];
+  size_t kernel_step_dim1 = kernel_shape[2] * kernel_shape[3];
+  size_t dst_step_dim0 = dst_chas * dst_cols * dst_rows;
+  size_t dst_step_dim1 = dst_cols * dst_rows;
 
   for(int i = 0; i < src_shape[0]; ++i) {
     for(int j = 0; j < kernel_shape[0]; ++j) {
