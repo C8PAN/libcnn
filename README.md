@@ -40,11 +40,23 @@ Here are several pixel-wise classification results of [semantically-augmented ma
 Please use [github's issue tracker](https://github.com/libcnn/libcnn/issues) to report bugs
 
 # Citing
-If you use libpointmatcher in an academic context, please cite the following publication:  
+If you use libcnn in an academic context, please cite the following publications:  
 
-    @inproceedings{li2015efficient,  
+    @inproceedings{li2015anefficient,  
       title={An Efficient Multi-scale Convolutional Neural Network for Image Classification Based on PCA},  
       author={Li, Shaohua and Huang, Huimin and Zhang, Yue and Liu, Ming},  
       year={2015},  
       organization={RCAR}  
     }
+
+    @inproceedings{li2015efficient}  
+      titile={Efficient Execution of Deep Neural Networks for Image Classification},  
+      author={Li, Shaohua and Liu, Ming},  
+      year={2015},  
+      booktitile={Real-time Computing and Robotics, Robotics and Biomimetics, Journal on},  
+      organization={Springer}  
+    }
+    
+PDF link:  
+[An Efficient Multi-scale Convolutional Neural Network for Image Classification Based on PCA](doc/refs/AnEfficient/AnEfficient.pdf)  
+[Efficient Execution of Deep Neural Networks for Image Classification](doc/refs/EfficientExecution/EfficientExecution.pdf)
